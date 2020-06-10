@@ -8,8 +8,27 @@
     <header>
       <h1>My blog</h1>
 
-    Ciao
+      {{ $name }}
+
+      <p>Numero studenti: {{ $students }}</p>
     </header>
+
+    @if ($students > 20)
+    <p>Classe numerosa: {{ $students }}</p>
+    @else
+    <p>Lorem</p>
+    @endif
+
+    @dump($teachers)
+
+    @foreach ($teachers as $teacher)
+    @if($loop->last)
+      {{ $teacher . '. ' }}
+    @else
+      {{ $teacher . ', ' }}
+    @endif
+
+    @endforeach
 
   </body>
 </html>
